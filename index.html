@@ -2029,15 +2029,11 @@
           }
         });
 
-        // Only initialize portal functionality if user is logged in
-        if (sessionStorage.getItem('isLoggedIn') === 'true') {
-          // Ensure navTabs and contentArea are available before calling updateContent
-          const navTabs = document.getElementById("navTabs");
-          const contentArea = document.getElementById("contentArea");
+        // Initialize tab switching functionality
+        const navTabs = document.getElementById("navTabs");
+        const contentArea = document.getElementById("contentArea");
 
-          // Set initial content for the active tab (Dashboard)
-          updateContent("dashboard");
-
+        if (navTabs && contentArea) {
           // Add click event listener to the navigation tabs container
           navTabs.addEventListener("click", (event) => {
             console.log("Tab click event triggered");
@@ -2056,27 +2052,39 @@
               // Add 'active' class to the clicked tab
               clickedTab.classList.add("active");
 
-                          // Get the data-tab attribute to determine which content to show
-            const tabName = clickedTab.dataset.tab;
+              // Get the data-tab attribute to determine which content to show
+              const tabName = clickedTab.dataset.tab;
               console.log("Switching to tab:", tabName);
 
-            // Add audit log entry for tab navigation
-            addAuditLogEntry(
-              "Navigation: Tab Switch",
-              "N/A",
-              "User Interface",
-              "N/A",
-              `User navigated to ${tabName} tab`,
-              "N/A",
-              tabName
-            );
+              // Add audit log entry for tab navigation (only if logged in)
+              if (sessionStorage.getItem('isLoggedIn') === 'true') {
+                addAuditLogEntry(
+                  "Navigation: Tab Switch",
+                  "N/A",
+                  "User Interface",
+                  "N/A",
+                  `User navigated to ${tabName} tab`,
+                  "N/A",
+                  tabName
+                );
+              }
 
-          // Update the content area
-          updateContent(tabName);
+              // Update the content area
+              updateContent(tabName);
             } else {
               console.log("No tab was clicked, target:", event.target);
+            }
+          });
+
+          // Set initial content for the active tab (only if logged in)
+          if (sessionStorage.getItem('isLoggedIn') === 'true') {
+            updateContent("trade-exception"); // Start with Trade Exception tab
+            // Set the first tab as active
+            const firstTab = document.querySelector('.nav-tab');
+            if (firstTab) {
+              firstTab.classList.add('active');
+            }
           }
-        });
         }
       };
       //  dddddddddddddd
