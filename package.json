@@ -1,0 +1,20 @@
+{
+  "name": "integrated-firebase",
+  "version": "1.0.0",
+  "description": "A simple web project integrated with Firebase.",
+  "main": "firebase-config.js",
+  "scripts": {
+    "start": "open Index.html",
+    "dev": "live-server --open=Index.html"
+  },
+  "keywords": [
+    "firebase",
+    "web",
+    "project"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
