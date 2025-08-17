@@ -2415,7 +2415,7 @@
           } else if (exceptionStatus === "Open") {
             statusColorClass = "text-orange-600";
           } else if (exceptionStatus === "Under Review") {
-            statusColorClass = "text-yellow-600";
+            statusColorClass = "text-yellow-400";
           } else if (exceptionStatus === "Resolved") {
             statusColorClass = "text-green-600";
           }
@@ -2435,7 +2435,7 @@
                     <select class="w-full border rounded-md p-2 text-sm" data-id="${tradeId}" data-field="exceptionStatus" data-old-value="${exceptionStatus || 'Default'}">
                       <option value="Default" ${!exceptionStatus || exceptionStatus === "Default" ? "selected" : ""} class="text-gray-600">Default</option>
                       <option value="Open" ${exceptionStatus === "Open" ? "selected" : ""} class="text-orange-600">Open</option>
-                      <option value="Under Review" ${exceptionStatus === "Under Review" ? "selected" : ""} class="text-yellow-600">Under Review</option>
+                      <option value="Under Review" ${exceptionStatus === "Under Review" ? "selected" : ""} class="text-yellow-400">Under Review</option>
                       <option value="Resolved" ${exceptionStatus === "Resolved" ? "selected" : ""} class="text-green-600">Resolved</option>
                     </select>
                   </td>
@@ -2926,7 +2926,7 @@
         const summaryItems = [
           { label: "Exception Trades", count: totalExceptions, color: "text-orange-600" },
           { label: "Open", count: openCount, color: "text-orange-600" },
-          { label: "Under Review", count: underReviewCount, color: "text-yellow-600" },
+          { label: "Under Review", count: underReviewCount, color: "text-yellow-400" },
           { label: "Resolved", count: resolvedCount, color: "text-green-600" }
         ];
 
@@ -5516,7 +5516,7 @@
         // First, remove any existing highlights
         const allRows = document.querySelectorAll('#tradeTableBody tr');
         allRows.forEach(row => {
-          row.classList.remove('highlighted-trade', 'bg-yellow-100', 'border-l-4', 'border-blue-500', 'bg-blue-100', 'border-blue-300');
+          row.classList.remove('highlighted-trade', 'bg-yellow-200', 'border-l-4', 'border-blue-500', 'bg-blue-100', 'border-blue-300');
         });
         
         // Remove any existing text highlights
@@ -5588,7 +5588,7 @@
         // First, remove any existing highlights
         const allRows = document.querySelectorAll('#tradeTableBody tr');
         allRows.forEach(row => {
-          row.classList.remove('highlighted-trade', 'bg-yellow-100', 'border-l-4', 'border-blue-500');
+          row.classList.remove('highlighted-trade', 'bg-yellow-200', 'border-l-4', 'border-blue-500');
         });
         
         // Find and highlight trades that match the regulation
@@ -5615,7 +5615,7 @@
           
           if (foundRegulation) {
             // Highlight this row
-            row.classList.add('highlighted-trade', 'bg-yellow-100', 'border-l-4', 'border-blue-500');
+            row.classList.add('highlighted-trade', 'bg-yellow-200', 'border-l-4', 'border-blue-500');
             row.style.transition = 'all 0.3s ease';
             highlightedCount++;
             
@@ -5655,7 +5655,7 @@
         // Create notification element
         const notification = document.createElement('div');
         notification.className = `highlight-notification fixed top-4 right-4 px-4 py-2 rounded-lg shadow-lg z-50 transition-all duration-300 ${
-          type === 'success' ? 'bg-green-500 text-white' : 'bg-yellow-500 text-white'
+          type === 'success' ? 'bg-green-500 text-white' : 'bg-yellow-400 text-white'
         }`;
         notification.textContent = message;
         
@@ -5677,7 +5677,7 @@
       function clearTradeHighlights() {
         const allRows = document.querySelectorAll('#tradeTableBody tr');
         allRows.forEach(row => {
-          row.classList.remove('highlighted-trade', 'bg-yellow-100', 'border-l-4', 'border-blue-500', 'bg-blue-100', 'border-blue-300');
+          row.classList.remove('highlighted-trade', 'bg-yellow-200', 'border-l-4', 'border-blue-500', 'bg-blue-100', 'border-blue-300');
           row.style.transform = '';
         });
         
@@ -5874,7 +5874,7 @@
                                       </div>
                                       <div class="framework-kpi-box">
                                           <p class="framework-kpi-label">Pending:</p>
-                                          <p class="framework-kpi-value text-yellow-600">${regulatoryData['MiFID II']?.pending || 0}</p>
+                                          <p class="framework-kpi-value text-yellow-400">${regulatoryData['MiFID II']?.pending || 0}</p>
                                       </div>
                                       <div class="framework-kpi-box">
                                           <p class="framework-kpi-label">Reporting Success Rate:</p>
@@ -5957,7 +5957,7 @@
                                                   <td class="framework-table-cell">CHIX</td>
                                                   <td class="framework-table-cell">900.00</td>
                                                   <td class="framework-table-cell"></td>
-                                                  <td class="framework-table-cell text-yellow-600">PENDING</td>
+                                                  <td class="framework-table-cell text-yellow-400">PENDING</td>
                                                   <td class="framework-table-cell">2025-07-01 11:15</td>
                                               </tr>
                                               <tr class="hover:bg-gray-50">
@@ -5966,7 +5966,7 @@
                                                   <td class="framework-table-cell">OTC</td>
                                                   <td class="framework-table-cell">102.50</td>
                                                   <td class="framework-table-cell">50000</td>
-                                                  <td class="framework-table-cell text-yellow-600">PENDING</td>
+                                                  <td class="framework-table-cell text-yellow-400">PENDING</td>
                                                   <td class="framework-table-cell">2025-07-01 11:30</td>
                                               </tr>
                                           </tbody>
@@ -5990,7 +5990,7 @@
                                       </div>
                                       <div class="framework-kpi-box">
                                           <p class="framework-kpi-label">Pending:</p>
-                                          <p class="framework-kpi-value text-yellow-600">${regulatoryData['SFTR']?.pending || 0}</p>
+                                          <p class="framework-kpi-value text-yellow-400">${regulatoryData['SFTR']?.pending || 0}</p>
                                       </div>
                                       <div class="framework-kpi-box">
                                           <p class="framework-kpi-label">Reporting Rate:</p>
@@ -6066,7 +6066,7 @@
                                                   <td class="framework-table-cell">Repo</td>
                                                   <td class="framework-table-cell">300,000</td>
                                                   <td class="framework-table-cell">UTI12350</td>
-                                                  <td class="framework-table-cell text-yellow-600">PENDING</td>
+                                                  <td class="framework-table-cell text-yellow-400">PENDING</td>
                                                   <td class="framework-table-cell">2025-07-01 11:45</td>
                                               </tr>
                                               <tr class="hover:bg-gray-50">
@@ -6074,7 +6074,7 @@
                                                   <td class="framework-table-cell">Buy-Sell Back</td>
                                                   <td class="framework-table-cell">900,000</td>
                                                   <td class="framework-table-cell">UTI12351</td>
-                                                  <td class="framework-table-cell text-yellow-600">PENDING</td>
+                                                  <td class="framework-table-cell text-yellow-400">PENDING</td>
                                                   <td class="framework-table-cell">2025-07-01 12:00</td>
                                               </tr>
                                           </tbody>
@@ -6098,7 +6098,7 @@
                                       </div>
                                       <div class="framework-kpi-box">
                                           <p class="framework-kpi-label">Pending:</p>
-                                          <p class="framework-kpi-value text-yellow-600">${regulatoryData['MAS']?.pending || 0}</p>
+                                          <p class="framework-kpi-value text-yellow-400">${regulatoryData['MAS']?.pending || 0}</p>
                                       </div>
                                       <div class="framework-kpi-box">
                                           <p class="framework-kpi-label">Reporting Success Rate:</p>
@@ -6167,14 +6167,14 @@
                                                   <td class="framework-table-cell">MAS006</td>
                                                   <td class="framework-table-cell">Commodity Swap</td>
                                                   <td class="framework-table-cell">750,000 USD</td>
-                                                  <td class="framework-table-cell text-yellow-600">PENDING</td>
+                                                  <td class="framework-table-cell text-yellow-400">PENDING</td>
                                                   <td class="framework-table-cell">2025-07-01 11:50</td>
                                               </tr>
                                               <tr class="hover:bg-gray-50">
                                                   <td class="framework-table-cell">MAS007</td>
                                                   <td class="framework-table-cell">FX Forward</td>
                                                   <td class="framework-table-cell">3,000,000 EUR</td>
-                                                  <td class="framework-table-cell text-yellow-600">PENDING</td>
+                                                  <td class="framework-table-cell text-yellow-400">PENDING</td>
                                                   <td class="framework-table-cell">2025-07-01 12:20</td>
                                               </tr>
                                           </tbody>
@@ -6198,7 +6198,7 @@
                                       </div>
                                       <div class="framework-kpi-box">
                                           <p class="framework-kpi-label">Pending:</p>
-                                          <p class="framework-kpi-value text-yellow-600">${regulatoryData['Dodd Frank']?.pending || 0}</p>
+                                          <p class="framework-kpi-value text-yellow-400">${regulatoryData['Dodd Frank']?.pending || 0}</p>
                                       </div>
                                       <div class="framework-kpi-box">
                                           <p class="framework-kpi-label">Reporting Rate:</p>
@@ -6274,7 +6274,7 @@
                                                   <td class="framework-table-cell">Interest Rate Swap</td>
                                                   <td class="framework-table-cell">Cleared</td>
                                                   <td class="framework-table-cell">ICE Trade Vault</td>
-                                                  <td class="framework-table-cell text-yellow-600">PENDING</td>
+                                                  <td class="framework-table-cell text-yellow-400">PENDING</td>
                                                   <td class="framework-table-cell">2025-07-01 12:00</td>
                                               </tr>
                                               <tr class="hover:bg-gray-50">
@@ -6282,7 +6282,7 @@
                                                   <td class="framework-table-cell">Credit Default Swap</td>
                                                   <td class="framework-table-cell">Uncleared</td>
                                                   <td class="framework-table-cell">DTCC</td>
-                                                  <td class="framework-table-cell text-yellow-600">PENDING</td>
+                                                  <td class="framework-table-cell text-yellow-400">PENDING</td>
                                                   <td class="framework-table-cell">2025-07-01 12:30</td>
                                               </tr>
                                           </tbody>
