@@ -1119,7 +1119,7 @@
           </div>
 
           <!-- Error Message -->
-          <div id="loginError" class="hidden bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+          <div id="loginError" class="hidden bg-orange-50 border border-orange-200 text-red-700 px-4 py-3 rounded-lg">
             <div class="flex items-center">
               <i class="fas fa-exclamation-circle mr-2"></i>
               <span>Invalid ID or Password. Please try again.</span>
@@ -1158,7 +1158,7 @@
             <!-- Logout Button -->
             <button
               id="logoutBtn"
-              class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center"
+              class="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg transition-colors duration-200 flex items-center"
             >
               <i class="fas fa-sign-out-alt mr-2"></i>
               Logout
@@ -2413,7 +2413,7 @@
           if (!exceptionStatus || exceptionStatus === "Default") {
             statusColorClass = "text-gray-600";
           } else if (exceptionStatus === "Open") {
-            statusColorClass = "text-red-600";
+            statusColorClass = "text-orange-600";
           } else if (exceptionStatus === "Under Review") {
             statusColorClass = "text-yellow-600";
           } else if (exceptionStatus === "Resolved") {
@@ -2428,13 +2428,13 @@
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-black">${counterparty}</td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-black">${productType}</td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-black">${notionalAmount}</td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-red-600">${exceptionType}</td>
-                  <td class="px-6 py-4 text-sm text-red-600 max-w-xs overflow-hidden text-ellipsis">${exceptionDescription}</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-orange-600">${exceptionType}</td>
+                  <td class="px-6 py-4 text-sm text-orange-600 max-w-xs overflow-hidden text-ellipsis">${exceptionDescription}</td>
                   <td class="px-6 py-4 text-sm text-green-600 max-w-xs overflow-hidden text-ellipsis">${exceptionResolution}</td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-black">
                     <select class="w-full border rounded-md p-2 text-sm" data-id="${tradeId}" data-field="exceptionStatus" data-old-value="${exceptionStatus || 'Default'}">
                       <option value="Default" ${!exceptionStatus || exceptionStatus === "Default" ? "selected" : ""} class="text-gray-600">Default</option>
-                      <option value="Open" ${exceptionStatus === "Open" ? "selected" : ""} class="text-red-600">Open</option>
+                      <option value="Open" ${exceptionStatus === "Open" ? "selected" : ""} class="text-orange-600">Open</option>
                       <option value="Under Review" ${exceptionStatus === "Under Review" ? "selected" : ""} class="text-yellow-600">Under Review</option>
                       <option value="Resolved" ${exceptionStatus === "Resolved" ? "selected" : ""} class="text-green-600">Resolved</option>
                     </select>
@@ -2924,8 +2924,8 @@
 
         // Create summary items array, excluding Default completely
         const summaryItems = [
-          { label: "Exception Trades", count: totalExceptions, color: "text-red-600" },
-          { label: "Open", count: openCount, color: "text-red-600" },
+          { label: "Exception Trades", count: totalExceptions, color: "text-orange-600" },
+          { label: "Open", count: openCount, color: "text-orange-600" },
           { label: "Under Review", count: underReviewCount, color: "text-yellow-600" },
           { label: "Resolved", count: resolvedCount, color: "text-green-600" }
         ];
@@ -3328,7 +3328,7 @@
           // Add Clear Filter button
           const clearFilterBtn = document.createElement("button");
           clearFilterBtn.className =
-            "mt-2 w-full bg-red-100 text-red-700 hover:bg-red-200 text-xs py-1 px-2 rounded";
+            "mt-2 w-full bg-orange-100 text-red-700 hover:bg-orange-200 text-xs py-1 px-2 rounded";
           clearFilterBtn.textContent = "Clear Filter";
           clearFilterBtn.onclick = (e) => {
             e.stopPropagation();
@@ -3351,7 +3351,7 @@
             exceptionActiveFilters[columnKey]?.to || ""
           }">
                           <button class="apply-date-filter mt-2 w-full bg-blue-100 text-blue-700 hover:bg-blue-200 text-xs py-1 px-2 rounded">Apply Date Filter</button>
-                          <button class="clear-date-filter mt-1 w-full bg-red-100 text-red-700 hover:bg-red-200 text-xs py-1 px-2 rounded">Clear Date Filter</button>
+                          <button class="clear-date-filter mt-1 w-full bg-orange-100 text-red-700 hover:bg-orange-200 text-xs py-1 px-2 rounded">Clear Date Filter</button>
                       `;
           filterSection.appendChild(dateFilterDiv);
 
@@ -3396,7 +3396,7 @@
             exceptionActiveFilters[columnKey]?.max || ""
           }">
                           <button class="apply-amount-filter mt-2 w-full bg-blue-100 text-blue-700 hover:bg-blue-200 text-xs py-1 px-2 rounded">Apply Amount Filter</button>
-                          <button class="clear-amount-filter mt-1 w-full bg-red-100 text-red-700 hover:bg-red-200 text-xs py-1 px-2 rounded">Clear Amount Filter</button>
+                          <button class="clear-amount-filter mt-1 w-full bg-orange-100 text-red-700 hover:bg-orange-200 text-xs py-1 px-2 rounded">Clear Amount Filter</button>
                       `;
           filterSection.appendChild(amountFilterDiv);
 
@@ -4650,7 +4650,7 @@
             reportingActiveFilters[columnKey]?.to || ""
           }">
                           <button class="apply-date-filter mt-2 w-full bg-blue-100 text-blue-700 hover:bg-blue-200 text-xs py-1 px-2 rounded">Apply Date Filter</button>
-                          <button class="clear-date-filter mt-1 w-full bg-red-100 text-red-700 hover:bg-red-200 text-xs py-1 px-2 rounded">Clear Date Filter</button>
+                          <button class="clear-date-filter mt-1 w-full bg-orange-100 text-red-700 hover:bg-orange-200 text-xs py-1 px-2 rounded">Clear Date Filter</button>
                       `;
           filterSection.appendChild(dateFilterDiv);
 
@@ -4778,7 +4778,7 @@
           // Add Clear Filter button
           const clearFilterBtn = document.createElement("button");
           clearFilterBtn.className =
-            "mt-2 w-full bg-red-100 text-red-700 hover:bg-red-200 text-xs py-1 px-2 rounded";
+            "mt-2 w-full bg-orange-100 text-red-700 hover:bg-orange-200 text-xs py-1 px-2 rounded";
           clearFilterBtn.textContent = "Clear Filter";
           clearFilterBtn.onclick = (e) => {
             e.stopPropagation();
@@ -5939,7 +5939,7 @@
                                                   <td class="framework-table-cell">XLON</td>
                                                   <td class="framework-table-cell">300.50</td>
                                                   <td class="framework-table-cell">75</td>
-                                                  <td class="framework-table-cell text-red-600">NACK (Invalid LEI)</td>
+                                                  <td class="framework-table-cell text-orange-600">NACK (Invalid LEI)</td>
                                                   <td class="framework-table-cell">2025-07-01 10:45</td>
                                               </tr>
                                               <tr class="hover:bg-gray-50">
@@ -5948,7 +5948,7 @@
                                                   <td class="framework-table-cell">XETR</td>
                                                   <td class="framework-table-cell">120.00</td>
                                                   <td class="framework-table-cell">150</td>
-                                                  <td class="framework-table-cell text-red-600">NACK (Missing Price)</td>
+                                                  <td class="framework-table-cell text-orange-600">NACK (Missing Price)</td>
                                                   <td class="framework-table-cell">2025-07-01 11:00</td>
                                               </tr>
                                               <tr class="hover:bg-gray-50">
@@ -6050,7 +6050,7 @@
                                                   <td class="framework-table-cell">Repo</td>
                                                   <td class="framework-table-cell">750,000</td>
                                                   <td class="framework-table-cell">UTI123XX</td>
-                                                  <td class="framework-table-cell text-red-600">NACK (UTI Mismatch)</td>
+                                                  <td class="framework-table-cell text-orange-600">NACK (UTI Mismatch)</td>
                                                   <td class="framework-table-cell">2025-07-01 10:45</td>
                                               </tr>
                                               <tr class="hover:bg-gray-50">
@@ -6058,7 +6058,7 @@
                                                   <td class="framework-table-cell">Securities Lending</td>
                                                   <td class="framework-table-cell">1,200,000</td>
                                                   <td class="framework-table-cell">UTI12349</td>
-                                                  <td class="framework-table-cell text-red-600">NACK (Invalid Collateral Value)</td>
+                                                  <td class="framework-table-cell text-orange-600">NACK (Invalid Collateral Value)</td>
                                                   <td class="framework-table-cell">2025-07-01 11:15</td>
                                               </tr>
                                               <tr class="hover:bg-gray-50">
@@ -6153,14 +6153,14 @@
                                                   <td class="framework-table-cell">MAS004</td>
                                                   <td class="framework-table-cell">FX Option</td>
                                                   <td class="framework-table-cell">1,000,000 EUR</td>
-                                                  <td class="framework-table-cell text-red-600">NACK (Incomplete Data)</td>
+                                                  <td class="framework-table-cell text-orange-600">NACK (Incomplete Data)</td>
                                                   <td class="framework-table-cell">2025-07-01 10:50</td>
                                               </tr>
                                               <tr class="hover:bg-gray-50">
                                                   <td class="framework-table-cell">MAS005</td>
                                                   <td class="framework-table-cell">Equity Option</td>
                                                   <td class="framework-table-cell">500,000 USD</td>
-                                                  <td class="framework-table-cell text-red-600">NACK (Invalid Product ID)</td>
+                                                  <td class="framework-table-cell text-orange-600">NACK (Invalid Product ID)</td>
                                                   <td class="framework-table-cell">2025-07-01 11:20</td>
                                               </tr>
                                               <tr class="hover:bg-gray-50">
@@ -6258,7 +6258,7 @@
                                                   <td class="framework-table-cell">Equity Swap</td>
                                                   <td class="framework-table-cell">Cleared</td>
                                                   <td class="framework-table-cell">ICE Trade Vault</td>
-                                                  <td class="framework-table-cell text-red-600">NACK (SDR Reporting Error)</td>
+                                                  <td class="framework-table-cell text-orange-600">NACK (SDR Reporting Error)</td>
                                                   <td class="framework-table-cell">2025-07-01 11:00</td>
                                               </tr>
                                               <tr class="hover:bg-gray-50">
@@ -6266,7 +6266,7 @@
                                                   <td class="framework-table-cell">Commodity Swap</td>
                                                   <td class="framework-table-cell">Uncleared</td>
                                                   <td class="framework-table-cell">DTCC</td>
-                                                  <td class="framework-table-cell text-red-600">NACK (Missing Counterparty)</td>
+                                                  <td class="framework-table-cell text-orange-600">NACK (Missing Counterparty)</td>
                                                   <td class="framework-table-cell">2025-07-01 11:30</td>
                                               </tr>
                                               <tr class="hover:bg-gray-50">
